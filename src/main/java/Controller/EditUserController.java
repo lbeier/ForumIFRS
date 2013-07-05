@@ -2,16 +2,14 @@ package Controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import Framework.ApplicationController;
 import Model.User;
 
-public class EditUserController extends HttpServlet {
+public class EditUserController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
 
 	public EditUserController() {
@@ -20,31 +18,27 @@ public class EditUserController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = ((HttpServletRequest) request).getSession();
-		int idUSer = (Integer) session.getAttribute("idUser");
-		boolean isAdmin = new User().isUserAdmin(idUSer);
+		int idUser = getIdUserLoggedIn(request);
+		boolean isAdmin = isLoggedUserAdmin(request);
 		int idUserEdit = Integer.parseInt(request.getParameter("id"));
 
 		if(isAdmin) {
 			User user = new User().findById(idUserEdit);
 			request.setAttribute("user", user);
-			RequestDispatcher rs = request.getRequestDispatcher("editUserByAdmin.jsp");
-			rs.forward(request, response);
-		} else if(idUSer == idUserEdit){
-			User user = new User().findById(idUSer);
+			render("editUserByAdmin", request, response);
+		} else if(idUser == idUserEdit){
+			User user = new User().findById(idUser);
 			request.setAttribute("user", user);
-			RequestDispatcher rs = request.getRequestDispatcher("editUser.jsp");
-			rs.forward(request, response);
+			render("editUser", request, response);
 		} else {
-			response.sendRedirect("index");
+			redirect("index", response);
 		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = ((HttpServletRequest) request).getSession();
-		int idUSer = (Integer) session.getAttribute("idUser");
-		boolean isAdmin = new User().isUserAdmin(idUSer);
+		int idUSer = getIdUserLoggedIn(request);
+		boolean isAdmin = isLoggedUserAdmin(request);
 		int idUserEdit = Integer.parseInt(request.getParameter("id"));
 
 		if(isAdmin) {
@@ -53,6 +47,7 @@ public class EditUserController extends HttpServlet {
 			String passwordUser = user.getPasswordUser();
 			user.updateUser(idUserEdit, passwordUser, typeUser, true);
 
+			redirect("listarUsuarios", response);
 		} else if(idUSer == idUserEdit){
 			User user = new User().findById(idUserEdit);
 			String oldPasswordUser = request.getParameter("senhaAntiga");
@@ -68,5 +63,4 @@ public class EditUserController extends HttpServlet {
 			response.sendRedirect("index");
 		}
 	}
-
 }
