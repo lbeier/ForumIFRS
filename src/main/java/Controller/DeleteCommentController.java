@@ -23,8 +23,9 @@ public class DeleteCommentController extends ApplicationController {
 
         if(canModifyComment) {
             Comment comment = new Comment();
+            int idThread  = comment.findById(idComment).getThread().getIdThread();
             comment.deleteComment(idComment);
-            
+        	redirect("exibeTopico?id="+idThread, response);
         } else {
         	redirect("index", response);
         }
