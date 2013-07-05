@@ -11,17 +11,20 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
-				<input type="text" id="titulo" name="titulo"
-					placeholder="Insira o título da seção" />
+				<label for="titulo">Título da seção</label>
 			</p>
-
 			<p>
-				<textarea id="descricao" name="descricao"
-					placeholder="Insira a descrição da seção"></textarea>
+				<input type="text" id="titulo" name="titulo" />
+			</p>
+			<p>
+				<label for="descricao">Descrição da seção</label>
+			</p>
+			<p>
+				<textarea id="descricao" name="descricao"></textarea>
 			</p>
 
-			<input type="submit" value="Enviar" /> <input type="reset"
-				value="Limpar" />
+			<input type="submit" value="Enviar" class="button" /> <input
+				type="reset" value="Limpar" class="button" />
 		</form>
 
 		<p>

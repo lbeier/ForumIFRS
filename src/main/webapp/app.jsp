@@ -12,11 +12,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600'
+	rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="conteiner" class="borderRounded">
-	<h3>Seções</h3>
+		<h3>Seções</h3>
 		<%
 			for (int i = 0; i < sections.size(); i++) {
 		%>
@@ -30,28 +32,23 @@
 		<%
 			}
 		%>
-
-		<%
+		<ul>
+			<%
 			if (isAdmin) {
 		%>
-		<p>
-			<a href="novaSecao">Nova seção</a>
-		</p>
+			<li><a href="novaSecao" class="button add">Nova seção</a></li>
 
-		<p>
-			<a href="novoUsuario">Novo usuário</a>
-		</p>
-		
-		<p>
-			<a href="listarUsuarios">Listar usuários</a>
-		</p>
-		<%
+			<li><a href="novoUsuario" class="button add">Novo usuário</a></li>
+
+			<li><a href="listarUsuarios" class="button email">Listar
+					usuários</a></li>
+			<%
 			}
 		%>
 
-		<p>
-			<a href="login?action=logout">Logout</a>
-		</p>
+			<li><a href="login?action=logout" class="button spark">Logout</a>
+			</li>
+		</ul>
 	</div>
 </body>
 </html>

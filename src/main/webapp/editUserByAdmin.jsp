@@ -15,8 +15,12 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
-				Usuário:
+				<label for="">Login do usuário</label>
 				<%=user.getLoginUser()%>
+			</p>
+			
+			<p>
+				<label for="">Tipo de usuário</label>
 			</p>
 
 			<%
@@ -43,7 +47,7 @@
 
 			<input type="hidden" name="idUser" id="idUser"
 				value="<%=user.getIdUser()%>" /> <input type="submit"
-				value="Criar usuario" /> <input type="reset" value="Limpar" />
+				value="Editar usuario" class="button" /> <input type="reset" value="Limpar" class="button" />
 		</form>
 	</div>
 </body>

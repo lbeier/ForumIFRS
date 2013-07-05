@@ -33,9 +33,8 @@
 				<%=(typeUser == true) ? "Administrador" : "Normal"%>
 			</p>
 
-			<a href="editarUsuario?id=<%=users.get(i).getIdUser()%>">Editar
-				usuário</a> <a href="apagarUsuario?id=<%=users.get(i).getIdUser()%>">Apagar
-				usuário</a>
+			<a href="editarUsuario?id=<%=users.get(i).getIdUser()%>" class="button edit">Editar usuário</a>
+			<a href="apagarUsuario?id=<%=users.get(i).getIdUser()%>" class="button delete">Apagar usuário</a>
 		</fieldset>
 		<%
 }

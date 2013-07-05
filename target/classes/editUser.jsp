@@ -17,7 +17,9 @@
 				Login do usuário:
 				<%=user.getLoginUser()%>
 			</p>
-			<p>Senha antiga</p>
+			<p>
+				<label for="senhaAntiga">Senha antiga</label>
+			</p>
 			<p>
 				<input type="password" name="senhaAntiga" id="senhaAntiga"
 					placeholder="Insira sua senha antiga" value="" />
@@ -28,7 +30,9 @@
 					value="" />
 			</p>
 
-			<p>Senha nova</p>
+			<p>
+				<label for="senhaNova">Senha nova</label>
+			</p>
 			<p>
 				<input type="password" name="senhaNova" id="senhaNova"
 					placeholder="Insira sua nova senha" value="" />
@@ -40,7 +44,8 @@
 
 			<input type="hidden" id="idUser" name="idUser"
 				value="<%=user.getIdUser()%>" /> <input type="submit"
-				value="Atualizar perfil" /> <input type="reset" value="Limpar" />
+				value="Atualizar perfil" class="button" /> <input type="reset"
+				value="Limpar" class="button" />
 		</form>
 	</div>
 </body>

@@ -15,19 +15,24 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
+				<label for="titleSection">Título da seção</label>
+			</p>
+			<p>
 				<input type="text" id="titleSection" name="titleSection"
-					placeholder="Insira o título da seção" value="<%=section.getTitleSection()%>"/>
+					value="<%=section.getTitleSection()%>" />
 			</p>
 
 			<p>
-				<textarea id="descriptionSection" name="descriptionSection"
-					placeholder="Insira a descrição da seção"><%=section.getDescriptionSection()%></textarea>
+				<label for="descriptionSection">Descrição da seção</label>
+			</p>
+			<p>
+				<textarea id="descriptionSection" name="descriptionSection"><%=section.getDescriptionSection()%></textarea>
 			</p>
 
-			<input type="hidden" id="idSection" name="idSection" value="<%=section.getIdSection() %>" />
-
-			<input type="submit" value="Enviar" /> <input type="reset"
-				value="Limpar" />
+			<input type="hidden" id="idSection" name="idSection"
+				value="<%=section.getIdSection()%>" /> <input type="submit"
+				value="Enviar" class="button" /> <input type="reset" value="Limpar"
+				class="button" />
 		</form>
 
 		<p>

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
-	import="Model.Comment"%>
+	pageEncoding="ISO-8859-1" import="Model.Comment"%>
 <%
 	Comment comment = (Comment) request.getAttribute("comment");
 %>
@@ -15,13 +14,16 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
-				<textarea id="messageComment" name="messageComment"
-					placeholder="Insira a mensagem"><%=comment.getMessageComment() %></textarea>
+				<label for="messageComment">Mensagem do comentário</label>
+			</p>
+			<p>
+				<textarea id="messageComment" name="messageComment"><%=comment.getMessageComment()%></textarea>
 			</p>
 
 			<input type="hidden" id="idThread" name="idThread"
-				value="<%=comment.getIdComment()%>" /> <input type="submit" value="Enviar" /> <input
-				type="reset" value="Limpar" />
+				value="<%=comment.getIdComment()%>" /> <input type="submit"
+				value="Enviar" class="button" /> <input type="reset" value="Limpar"
+				class="button" />
 		</form>
 	</div>
 </body>

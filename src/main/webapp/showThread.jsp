@@ -25,20 +25,18 @@
 				</a>
 			</legend>
 			<%=thread.getMessageThread()%>
-
-			<%
+			<ul>
+				<%
 			    if (canEditThread) {
 			%>
-			<p>
-				<a href="editarTopico?id=<%=thread.getIdThread()%>">Editar
-					tópico</a>
-			</p>
-			<p>
-				<a href="apagarTopico?id=<%=thread.getIdThread()%>">Apagar tópico</a>
-			</p>
-			<%
+				<li><a href="editarTopico?id=<%=thread.getIdThread()%>"
+					class="button edit">Editar tópico</a></li>
+				<li><a href="apagarTopico?id=<%=thread.getIdThread()%>"
+					class="button delete">Apagar tópico</a></li>
+				<%
 			    }
 			%>
+			</ul>
 		</fieldset>
 		<hr />
 
@@ -50,29 +48,28 @@
 				Comentário
 				<%=i + 1%></legend>
 			<%=comments.get(i).getMessageComment()%>
-
-			<%
+			<ul>
+				<%
 			    if (idUSer == comments.get(i).getUser().getIdUser() || isAdmin) {
 			%>
-			<p>
-				<a href="editarComentario?id=<%=comments.get(i).getIdComment()%>">Editar
-					comentário</a>
-			</p>
-			
-			<p>
-				<a href="apagarComentario?id=<%=comments.get(i).getIdComment()%>">Apagar
-					comentário</a>
-			</p>
-			<%
+				<li><a
+					href="editarComentario?id=<%=comments.get(i).getIdComment()%>"
+					class="button edit">Editar comentário</a></li>
+
+				<li><a
+					href="apagarComentario?id=<%=comments.get(i).getIdComment()%>"
+					class="button delete">Apagar comentário</a></li>
+				<%
 			    }
 			%>
+			</ul>
 		</fieldset>
 		<%
 		    }
 		%>
 		<p>
-			<a href="novoComentario?id=<%=thread.getIdThread()%>">Novo
-				comentário</a>
+			<a href="novoComentario?id=<%=thread.getIdThread()%>"
+				class="button add">Novo comentário</a>
 		</p>
 	</div>
 </body>

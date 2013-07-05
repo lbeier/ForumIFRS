@@ -16,21 +16,20 @@
 </head>
 <body>
 	<div id="conteiner">
-		<p>
-			<a href="novoTopico?idSection=<%=idSection%>">Novo tópico</a>
-		</p>
-		<%
+		<ul>
+			<li><a href="novoTopico?idSection=<%=idSection%>"
+				class="button add">Novo tópico</a></li>
+			<%
 		    if (isAdmin) {
 		%>
-		<p>
-			<a href="apagarSecao?id=<%=idSection%>">Apagar seção</a>
-		</p>
-		<p>
-			<a href="editarSecao?id=<%=idSection%>">Editar seção</a>
-		</p>
-		<%
+			<li><a href="editarSecao?id=<%=idSection%>" class="button edit">Editar
+					seção</a></li>
+			<li><a href="apagarSecao?id=<%=idSection%>"
+				class="button delete">Apagar seção</a></li>
+			<%
 		    }
 		%>
+		</ul>
 		<%
 		    for (int i = 0; i < threads.size(); i++) {
 		%>

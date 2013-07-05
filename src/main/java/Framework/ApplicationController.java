@@ -85,6 +85,5 @@ public class ApplicationController extends HttpServlet {
 		System.out.println("Logout");
 		HttpSession session = request.getSession();
 		session.invalidate();
-	}
-	
+	}	
 }

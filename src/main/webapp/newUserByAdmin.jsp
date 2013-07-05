@@ -11,18 +11,25 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
-				<input type="text" name="login" id="login"
-					placeholder="Insira seu login" />
+				<label for="login">Login do usuário</label>
+			</p>
+			<p>
+				<input type="text" name="login" id="login" />
+			</p>
+			<p>
+				<label for="senha">Senha do usuário</label>
 			</p>
 			<p>
 				<input type="password" name="senha" id="senha"
-					placeholder="Insira sua senha" />
+					placeholder="Insira a senha" />
 			</p>
 			<p>
 				<input type="password" name="senhaConfirma" id="senhaConfirma"
-					placeholder="Insira sua senha novamente" />
+					placeholder="Repita a senha" />
 			</p>
-
+			<p>
+				<label for="tipo">Tipo de usuário</label>
+			</p>
 			<p>
 				<input type="radio" name="tipo" value="true">Administrador
 			</p>
@@ -30,8 +37,8 @@
 				<input type="radio" name="tipo" value="false">Normal
 			</p>
 
-			<input type="submit" value="Criar usuario" /> <input type="reset"
-				value="Limpar" />
+			<input type="submit" value="Criar usuario" class="button" /> <input
+				type="reset" value="Limpar" class="button" />
 		</form>
 
 		<p>

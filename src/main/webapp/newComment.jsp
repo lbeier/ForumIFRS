@@ -14,13 +14,15 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
-				<textarea id="messageComment" name="messageComment"
-					placeholder="Insira a mensagem"></textarea>
+				<label for="messageComment">Mensagem do comentário</label>
+			</p>
+			<p>
+				<textarea id="messageComment" name="messageComment"></textarea>
 			</p>
 
 			<input type="hidden" id="idThread" name="idThread"
-				value="<%=idThread%>" /> <input type="submit" value="Enviar" /> <input
-				type="reset" value="Limpar" />
+				value="<%=idThread%>" /> <input type="submit" value="Enviar"
+				class="button" /> <input type="reset" value="Limpar" class="button" />
 		</form>
 	</div>
 </body>

@@ -20,8 +20,8 @@
 						placeholder="Senha" class="inputLogin"/>
 				</p>
 
-				<input type="submit" value="Login" /> <input type="reset"
-					value="Limpar" />
+				<input type="submit" value="Login" class="button" /> <input type="reset"
+					value="Limpar" class="button" />
 			</form>
 		</div>
 	</div>

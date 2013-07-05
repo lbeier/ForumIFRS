@@ -11,20 +11,31 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
+				<label for="login">
+					Login do usuário
+				</label>
+			</p>
+			<p>
 				<input type="text" name="login" id="login"
 					placeholder="Insira seu login" />
 			</p>
+			
+			<p>
+				<label for="senha">
+					Senha do usuário
+				</label>
+			</p>
 			<p>
 				<input type="password" name="senha" id="senha"
-					placeholder="Insira sua senha" />
+					placeholder="Insira a senha" />
 			</p>
 			<p>
 				<input type="password" name="senhaConfirma" id="senhaConfirma"
-					placeholder="Insira sua senha novamente" />
+					placeholder="Repita a senha" />
 			</p>
 
-			<input type="submit" value="Criar usuario" /> <input type="reset"
-				value="Limpar" />
+			<input type="submit" value="Criar usuario" class="button" /> <input type="reset"
+				value="Limpar" class="button" />
 		</form>
 	</div>
 </body>

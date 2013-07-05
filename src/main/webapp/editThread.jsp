@@ -15,18 +15,24 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
-				<input type="text" id="titleThread" name="titleThread" 
-				placeholder="Insira o título do tópico" value="<%= thread.getTitleThread() %>"/>
+				<label for="titleThread">Título do tópico</label>
+			</p>
+			<p>
+				<input type="text" id="titleThread" name="titleThread"
+					value="<%=thread.getTitleThread()%>" />
 			</p>
 
 			<p>
-				<textarea id="messageThread" name="messageThread"
-					placeholder="Insira a descrição do tópico"><%= thread.getMessageThread() %></textarea>
+				<label for="messageThread">Mensagem do tópico</label>
+			</p>
+			<p>
+				<textarea id="messageThread" name="messageThread"><%=thread.getMessageThread()%></textarea>
 			</p>
 
 			<input type="hidden" id="idThread" name="idThread"
-				value="<%=thread.getIdThread() %>" /> <input type="submit" value="Enviar" /> <input
-				type="reset" value="Limpar" />
+				value="<%=thread.getIdThread()%>" /> <input type="submit"
+				value="Enviar" class="button" /> <input type="reset" value="Limpar"
+				class="button" />
 		</form>
 
 		<p>

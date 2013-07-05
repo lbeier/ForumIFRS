@@ -15,18 +15,22 @@
 	<div id="conteiner">
 		<form action="" method="post">
 			<p>
-				<input type="text" id="titleThread" name="titleThread"
-					placeholder="Insira o título do tópico" />
+				<label for="titleThread">Título do tópico</label>
+			</p>
+			<p>
+				<input type="text" id="titleThread" name="titleThread" />
 			</p>
 
 			<p>
-				<textarea id="messageThread" name="messageThread"
-					placeholder="Insira a descrição do tópico"></textarea>
+				<label for="messageThread">Mensagem do tópico</label>
+			</p>
+			<p>
+				<textarea id="messageThread" name="messageThread"></textarea>
 			</p>
 
 			<input type="hidden" id="idSection" name="idSection"
-				value="<%=idSection%>" /> <input type="submit" value="Enviar" /> <input
-				type="reset" value="Limpar" />
+				value="<%=idSection%>" /> <input type="submit" value="Enviar"
+				class="button" /> <input type="reset" value="Limpar" class="button" />
 		</form>
 
 		<p>
