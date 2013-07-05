@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import Framework.ApplicationController;
 import Model.Section;
-import Model.User;
 
 public class IndexController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
@@ -23,10 +22,8 @@ public class IndexController extends ApplicationController {
 
 		Section section = new Section();
 		List<Section> sections = section.findAll();
-		
-		User user = new User();
-		int id = (Integer) request.getSession().getAttribute("idUser");
-		boolean isAdmin = user.isUserAdmin(id);
+
+		boolean isAdmin = isLoggedUserAdmin(request);
 		request.setAttribute("sections", sections);
 		request.setAttribute("isAdmin", isAdmin);
 		

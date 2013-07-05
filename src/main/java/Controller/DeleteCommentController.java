@@ -2,13 +2,13 @@ package Controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import Framework.ApplicationController;
 import Model.Comment;
 
-public class DeleteCommentController extends HttpServlet {
+public class DeleteCommentController extends ApplicationController {
     private static final long serialVersionUID = 1L;
 
     public DeleteCommentController() {
@@ -17,22 +17,20 @@ public class DeleteCommentController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = ((HttpServletRequest) request).getSession();
-        int idUSer = (Integer) session.getAttribute("idUser");
+        int idUSer = getIdUserLoggedIn(request);
         int idComment = Integer.parseInt(request.getParameter("id"));
         boolean canModifyComment = new Comment().canUserModifyComment(idUSer, idComment);
 
         if(canModifyComment) {
             Comment comment = new Comment();
             comment.deleteComment(idComment);
+            
         } else {
-            response.sendRedirect("index");
+        	redirect("index", response);
         }
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
+            throws ServletException, IOException {}
 }
