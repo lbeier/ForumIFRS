@@ -1,19 +1,15 @@
 package Controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import Framework.ApplicationController;
 import Model.Comment;
 import Model.Thread;
 import Model.User;
 
-public class NewCommentController extends HttpServlet {
+public class NewCommentController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
 
 	public NewCommentController() {
@@ -22,18 +18,15 @@ public class NewCommentController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idThread = Integer.parseInt(request.getParameter("id"));
-		
+		int idThread = Integer.parseInt(request.getParameter("id"));		
 		request.setAttribute("idThread", idThread);
-		RequestDispatcher rs = request.getRequestDispatcher("newComment.jsp");
-		rs.forward(request, response);
-
+		
+		render("newComment", request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		int idUser = (Integer) session.getAttribute("idUser");		
+		int idUser = getIdUserLoggedIn(request);	
 		String messageComment = request.getParameter("messageComment");
 		int idThread = Integer.parseInt(request.getParameter("idThread"));
 		Comment comment = new Comment();
@@ -47,5 +40,4 @@ public class NewCommentController extends HttpServlet {
 		
 		response.sendRedirect("exibeTopico?id="+idThread);
 	}
-
 }
