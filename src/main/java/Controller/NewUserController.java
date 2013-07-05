@@ -2,15 +2,14 @@ package Controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Framework.ApplicationController;
 import Model.User;
 
-public class NewUserController extends HttpServlet {
+public class NewUserController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
 
 	public NewUserController() {
@@ -19,16 +18,12 @@ public class NewUserController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		User user = new User();
-		int id = (Integer) request.getSession().getAttribute("idUser");
-		boolean isAdmin = user.isUserAdmin(id);
+		boolean isAdmin = isLoggedUserAdmin(request);
 
 		if(isAdmin) {
-			RequestDispatcher rs = request.getRequestDispatcher("newUserByAdmin.jsp");
-			rs.forward(request, response);
+			render("newUserByAdmin", request, response);
 		} else {
-			RequestDispatcher rs = request.getRequestDispatcher("newUser.jsp");
-			rs.forward(request, response);
+			render("newUser", request, response);
 		}
 	}
 
@@ -49,11 +44,9 @@ public class NewUserController extends HttpServlet {
 			else
 				user.setTypeUser(false);
 
-			user.insertNewUser(user);
-		} else {
-
+			user.insertNewUser(user);			
 		}
-
+		
+		redirect("index", response);			
 	}
-
 }
