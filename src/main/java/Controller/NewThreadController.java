@@ -1,18 +1,17 @@
 package Controller;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import Framework.ApplicationController;
 import Model.Section;
 import Model.Thread;
 import Model.User;
 
-public class NewThreadController extends HttpServlet {
+public class NewThreadController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
 
 	public NewThreadController() {
@@ -23,15 +22,13 @@ public class NewThreadController extends HttpServlet {
 			throws ServletException, IOException {
 		int idSection = Integer.parseInt(request.getParameter("idSection"));
 		request.setAttribute("idSection", idSection);
-		RequestDispatcher rs = request.getRequestDispatcher("newThread.jsp");
-		rs.forward(request, response);
-
+		
+		render("newThread", request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		int idUser = (Integer) session.getAttribute("idUser");
+		int idUser = getIdUserLoggedIn(request);
 		String titleThread = request.getParameter("titleThread");
 		String messageThread = request.getParameter("messageThread");
 		int idSection = Integer.parseInt(request.getParameter("idSection"));
@@ -49,5 +46,4 @@ public class NewThreadController extends HttpServlet {
 
 		response.sendRedirect("exibeTopico?id="+idThread);
 	}
-
 }
