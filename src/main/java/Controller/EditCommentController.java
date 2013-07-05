@@ -2,57 +2,49 @@ package Controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import Framework.ApplicationController;
 import Model.Comment;
-import Model.Thread;
 
-public class EditCommentController extends HttpServlet {
+public class EditCommentController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
-       
-    public EditCommentController() {
-        super();
-    }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	public EditCommentController() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = ((HttpServletRequest) request).getSession();
-		int idUSer = (Integer) session.getAttribute("idUser");
+		int idUser = getIdUserLoggedIn(request);
 		int idComment = Integer.parseInt(request.getParameter("id"));
-		boolean canEditThread = new Comment().canUserModifyComment(idUSer, idComment);
+		boolean canEditThread = new Comment().canUserModifyComment(idUser, idComment);
 
 		if(canEditThread) {
 			Comment comment = new Comment().findById(idComment);
 			request.setAttribute("comment", comment);
-			RequestDispatcher rs = request.getRequestDispatcher("editComment.jsp");
-			rs.forward(request, response);
+			render("editComment", request, response);
 		} else {
-			response.sendRedirect("index");
-		}
-		
+			redirect("index", response);
+		}		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = ((HttpServletRequest) request).getSession();
-		int idUSer = (Integer) session.getAttribute("idUser");
+		int idUser = getIdUserLoggedIn(request);
 		String messageComment = String.valueOf(request.getParameter("messageComment"));
 		int idComment = Integer.parseInt(request.getParameter("id"));
-		boolean canEditThread = new Comment().canUserModifyComment(idUSer, idComment);
-		
+		boolean canEditThread = new Comment().canUserModifyComment(idUser, idComment);
+
 		if(canEditThread) {
-			Comment comment = new Comment();
+			Comment comment = new Comment();			
 			comment.updateComment(idComment, messageComment);
+			int idThread = comment.findById(idComment).getThread().getIdThread();
+			redirect("exibeTopico?id="+idThread, response);
 		} else {
-			response.sendRedirect("index");
+			redirect("index", response);
 		}
-		
-
 	}
-
 }
