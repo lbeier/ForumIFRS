@@ -3,17 +3,15 @@ package Controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import Framework.ApplicationController;
 import Model.Section;
 import Model.User;
 
-public class IndexController extends HttpServlet {
+public class IndexController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
 
 	public IndexController() {
@@ -31,9 +29,8 @@ public class IndexController extends HttpServlet {
 		boolean isAdmin = user.isUserAdmin(id);
 		request.setAttribute("sections", sections);
 		request.setAttribute("isAdmin", isAdmin);
-		RequestDispatcher rs = request.getRequestDispatcher("app.jsp");
-		rs.forward(request, response);
-
+		
+		render("app", request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
