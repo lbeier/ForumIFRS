@@ -1,17 +1,13 @@
 package Controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import Framework.ApplicationController;
 import Model.User;
 
-public class LoginController extends HttpServlet {
+public class LoginController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
 
 	public LoginController() {
@@ -22,11 +18,9 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 
 		if(request.getParameter("action") != null) {
-			HttpSession session = ((HttpServletRequest) request).getSession();
-			session.invalidate();
+			logout(request);
 		}
-		RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
-		rs.forward(request, response);
+		render("login", request, response);		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,14 +35,10 @@ public class LoginController extends HttpServlet {
 		int idUser = user.loginUser();
 
 		if(idUser != 0) {
-			HttpSession session = request.getSession();
-			session.setAttribute("userAuth", "true");
-			session.setAttribute("idUser", idUser);
-			response.sendRedirect("index");
+			login(idUser, request);
+			redirect("index", response);
 		} else {
-			RequestDispatcher rs = request.getRequestDispatcher("login.jsp");
-			rs.forward(request, response);
+			render("login", request, response);
 		}
 	}
-
 }
