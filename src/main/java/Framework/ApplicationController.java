@@ -70,6 +70,7 @@ public class ApplicationController extends HttpServlet {
 	 * @param request
 	 */
 	public void logout(HttpServletRequest request) {
+		System.out.println("Logout");
 		HttpSession session = request.getSession();
 		session.invalidate();
 	}
