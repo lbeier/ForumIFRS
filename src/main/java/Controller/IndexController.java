@@ -26,12 +26,10 @@ public class IndexController extends ApplicationController {
 		boolean isAdmin = isLoggedUserAdmin(request);
 		request.setAttribute("sections", sections);
 		request.setAttribute("isAdmin", isAdmin);
-		
+
 		render("app", request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-	}
-
+			throws ServletException, IOException {}
 }
