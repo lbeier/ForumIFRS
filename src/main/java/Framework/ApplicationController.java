@@ -65,6 +65,11 @@ public class ApplicationController extends HttpServlet {
 		return isAdmin;
 	}
 	
+	/**
+	 * Cria a sessão.
+	 * @param idUser
+	 * @param request
+	 */
 	public void login(int idUser, HttpServletRequest request) {
 		System.out.println("Login");
 		HttpSession session = request.getSession();
