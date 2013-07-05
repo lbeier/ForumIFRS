@@ -2,16 +2,14 @@ package Controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Framework.ApplicationController;
 import Model.Section;
-import Model.User;
 
-public class NewSectionController extends HttpServlet {
+public class NewSectionController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
 
 	public NewSectionController() {
@@ -20,17 +18,13 @@ public class NewSectionController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		User user = new User();
-		int id = (Integer) request.getSession().getAttribute("idUser");
-		boolean isAdmin = user.isUserAdmin(id);
+		boolean isAdmin = isLoggedUserAdmin(request);
 
 		if(isAdmin) {
-			RequestDispatcher rs = request.getRequestDispatcher("newSection.jsp");
-			rs.forward(request, response);
+			render("newSection", request, response);
 		} else {
-			response.sendRedirect("index");
+			redirect("index", response);
 		}
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +37,6 @@ public class NewSectionController extends HttpServlet {
 		section.setDescriptionSection(description);
 		int idSection = section.insertNewSection(section);
 
-		response.sendRedirect("exibeSecao?id="+idSection);
+		redirect("exibeSecao?id="+idSection, response);
 	}
-
 }
