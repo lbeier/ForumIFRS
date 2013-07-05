@@ -87,6 +87,7 @@ public class Section {
         em.getTransaction().commit();
         em.close();
         
+        new Thread().deleteAllThreadsFromSection(id);
     }
     
     public void updateSection(int id, String title, String description) {
