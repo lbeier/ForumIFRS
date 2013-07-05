@@ -1,4 +1,1 @@
-ForumIFRS
-=========
-
-Fórum desenvolvido para a cadeira de Java do IFRS.
+Projeto para a cadeira de Java do IFRS.
