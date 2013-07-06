@@ -21,25 +21,22 @@
 				<label for="senhaAntiga">Senha antiga</label>
 			</p>
 			<p>
-				<input type="password" name="senhaAntiga" id="senhaAntiga"
-					placeholder="Insira sua senha antiga" value="" />
+				<input type="password" name="senhaAntiga" id="senhaAntiga"/>
 			</p>
 			<p>
 				<input type="password" name="senhaAntigaConfirma"
-					id="senhaAntigaConfirma" placeholder="Repita sua senha antiga"
-					value="" />
+					id="senhaAntigaConfirma" />
 			</p>
 
 			<p>
 				<label for="senhaNova">Senha nova</label>
 			</p>
 			<p>
-				<input type="password" name="senhaNova" id="senhaNova"
-					placeholder="Insira sua nova senha" value="" />
+				<input type="password" name="senhaNova" id="senhaNova" />
 			</p>
 			<p>
 				<input type="password" name="senhaNovaConfirma"
-					id="senhaNovaConfirma" placeholder="Repita sua nova senha" value="" />
+					id="senhaNovaConfirma" />
 			</p>
 
 			<input type="hidden" id="idUser" name="idUser"

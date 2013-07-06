@@ -16,8 +16,7 @@
 				</label>
 			</p>
 			<p>
-				<input type="text" name="login" id="login"
-					placeholder="Insira seu login" />
+				<input type="text" name="login" id="login" />
 			</p>
 			
 			<p>
@@ -26,12 +25,10 @@
 				</label>
 			</p>
 			<p>
-				<input type="password" name="senha" id="senha"
-					placeholder="Insira a senha" />
+				<input type="password" name="senha" id="senha" />
 			</p>
 			<p>
-				<input type="password" name="senhaConfirma" id="senhaConfirma"
-					placeholder="Repita a senha" />
+				<input type="password" name="senhaConfirma" id="senhaConfirma" />
 			</p>
 
 			<input type="submit" value="Criar usuario" class="button" /> <input type="reset"

@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div id="conteiner" class="borderRounded">
-		<h3>Seções</h3>
+		<h1>Fórum</h1>
 		<%
 			for (int i = 0; i < sections.size(); i++) {
 		%>

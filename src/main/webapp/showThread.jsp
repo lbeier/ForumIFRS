@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
-	import="java.util.List, Model.Comment, Model.Thread"%>
+	import="java.util.List, Model.Comment, Model.Thread, Model.Section"%>
 <%
-    List<Comment> comments = (List<Comment>) request
-            .getAttribute("comments");
+    List<Comment> comments = (List<Comment>) request.getAttribute("comments");
     Thread thread = (Thread) request.getAttribute("thread");
-    boolean canEditThread = (Boolean) request
-            .getAttribute("canEditThread");
+    boolean canEditThread = (Boolean) request.getAttribute("canEditThread");
     boolean isAdmin = (Boolean) request.getAttribute("isAdmin");
     int idUSer = (Integer) request.getAttribute("idUSer");
+    Section section = (Section) request.getAttribute("section");
+    int idSection = section.getIdSection();
+    String titleSection = section.getTitleSection();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,6 +20,13 @@
 </head>
 <body>
 	<div id="conteiner">
+	<p>
+		<a href="index">Fórum</a>
+		>>
+		<a href="exibeSecao?id=<%=idSection %>"><%=titleSection %></a>
+		>>
+		<a href="exibeSecao?id=<%=thread.getIdThread() %>"><%=thread.getTitleThread() %></a>
+	</p>
 		<fieldset>
 			<legend>
 				<%=thread.getTitleThread()%>

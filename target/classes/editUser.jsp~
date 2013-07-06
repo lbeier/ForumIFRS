@@ -32,11 +32,12 @@
 				<label for="senhaNova">Senha nova</label>
 			</p>
 			<p>
-				<input type="password" name="senhaNova" id="senhaNova" />
+				<input type="password" name="senhaNova" id="senhaNova"
+					placeholder="Insira sua nova senha" value="" />
 			</p>
 			<p>
 				<input type="password" name="senhaNovaConfirma"
-					id="senhaNovaConfirma" />
+					id="senhaNovaConfirma" placeholder="Repita sua nova senha" value="" />
 			</p>
 
 			<input type="hidden" id="idUser" name="idUser"

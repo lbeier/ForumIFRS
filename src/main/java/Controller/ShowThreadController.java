@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Framework.ApplicationController;
 import Model.Comment;
+import Model.Section;
 import Model.Thread;
 
 public class ShowThreadController extends ApplicationController {
@@ -21,6 +22,8 @@ public class ShowThreadController extends ApplicationController {
 			throws ServletException, IOException {
 		int idThread = Integer.parseInt(request.getParameter("id"));
 		Thread thread = new Thread().findById(idThread);
+		int idSection = thread.getSection().getIdSection();
+		Section section = new Section().findById(idSection);
 		List<Comment> comments = new Comment().findAllByThread(idThread);
 		int idUSer = getIdUserLoggedIn(request);
 		boolean canEditThread = new Thread().canUserModifyThread(idUSer, idThread);
@@ -31,6 +34,7 @@ public class ShowThreadController extends ApplicationController {
 		request.setAttribute("idUSer", idUSer);
 		request.setAttribute("thread", thread);
 		request.setAttribute("comments", comments);
+		request.setAttribute("section", section);
 		
 		render("showThread", request, response);
 	}

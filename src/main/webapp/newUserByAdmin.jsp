@@ -20,12 +20,10 @@
 				<label for="senha">Senha do usuário</label>
 			</p>
 			<p>
-				<input type="password" name="senha" id="senha"
-					placeholder="Insira a senha" />
+				<input type="password" name="senha" id="senha" />
 			</p>
 			<p>
-				<input type="password" name="senhaConfirma" id="senhaConfirma"
-					placeholder="Repita a senha" />
+				<input type="password" name="senhaConfirma" id="senhaConfirma" />
 			</p>
 			<p>
 				<label for="tipo">Tipo de usuário</label>

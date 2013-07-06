@@ -18,7 +18,7 @@
 					<input type="text" name="loginUser" id="loginUser"/>
 				</p>
 				<p>
-					<label for="passwordUser">Senha</label> 
+					<label for="passwordUser">Login</label> 
 				</p>
 				<p>
 					<input type="password" name="passwordUser" id="passwordUser"/>

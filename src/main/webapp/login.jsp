@@ -12,12 +12,16 @@
 		<div id="content">
 			<form action="login" method="post">
 				<p>
-					<input type="text" name="loginUser" id="loginUser"
-						placeholder="Login" class="inputLogin"/>
+					<label for="loginUser">Login</label> 
 				</p>
 				<p>
-					<input type="password" name="passwordUser" id="passwordUser"
-						placeholder="Senha" class="inputLogin"/>
+					<input type="text" name="loginUser" id="loginUser"/>
+				</p>
+				<p>
+					<label for="passwordUser">Senha</label> 
+				</p>
+				<p>
+					<input type="password" name="passwordUser" id="passwordUser"/>
 				</p>
 
 				<input type="submit" value="Login" class="button" /> <input type="reset"
