@@ -16,6 +16,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Fórum - IFRS - Lucas Falk Beier</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/JavaScript" src="js/jquery-1.10.2.min.js"></script> 
+<script type="text/JavaScript" src="js/scripts.js"></script>
 </head>
 <body>
 	<div id="conteiner">
@@ -40,7 +42,7 @@
 
 			<div id="mensagemTopico<%= i %>" name="mensagemTopico i %>" class="corpoApresentacao">
 			<div id="desenhoTopico<%= i %>" name="desenhoTopico<%= i %>" class="desenhoApresentacao">
-				<img alt="" src="http://cdn3.iconfinder.com/data/icons/iconic-1/32/chat_alt_stroke-48.png"/>
+				<img alt="" src="images/thread.png"/>
 			</div>			
 			<div class="mensagemApresentacao">
 				<%
