@@ -9,14 +9,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Fórum - IFRS - Lucas Falk Beier</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 	<div id="conteiner">
-		<p>
+		<div class="breadcrumbs">
 			<a href="index">Fórum</a>
-		</p>
+		</div>
 		<%
 			for (int i = 0; i < users.size(); i++) {
 				String loginUser = users.get(i).getLoginUser();

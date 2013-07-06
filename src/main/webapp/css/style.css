@@ -1,5 +1,32 @@
 @CHARSET "UTF-8";
 
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Open Sans'), local('OpenSans'),
+		url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff)
+		format('woff');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: local('Open Sans Semibold'), local('OpenSans-Semibold'),
+		url(http://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff)
+		format('woff');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Open Sans Bold'), local('OpenSans-Bold'),
+		url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff)
+		format('woff');
+}
+
 body {
 	background-image: url("../images/shattered.png");
 	background-repeat: repeat;
@@ -21,7 +48,7 @@ legend {
 }
 
 input[type="text"],input[type="password"],textarea {
-	width: 650px;
+	width: 835px;
 	border: 2px solid #dadada;
 	border-radius: 7px;
 	font-size: 20px;
@@ -119,6 +146,14 @@ li {
 	float: left;
 }
 
+.breadcrumbs {
+	width: auto;
+	padding: 5px;
+	margin-bottom: 10px;
+	background-color: #F8F8F8;
+	border: 2px solid #000000;
+}
+
 #conteiner {
 	margin: auto;
 	width: 850px;
@@ -150,10 +185,8 @@ li {
 		EndColorStr='#cccccc');
 	border: 1px solid #777;
 	padding: 0 1.5em;
-	margin: 0.5em;
-	font: bold 1em/2em Arial, Helvetica;
+	font: bold 1em/2em 'Open Sans', sans-serif;
 	text-decoration: none;
-	color: #333;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
 	-moz-border-radius: .2em;
 	-webkit-border-radius: .2em;

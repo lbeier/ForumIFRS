@@ -15,34 +15,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Fórum - IFRS - Lucas Falk Beier</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 	<div id="conteiner">
-	<p>
+	<div class="breadcrumbs">
 		<a href="index">Fórum</a>
-		>
+		::
 		<a href="exibeSecao?id=<%=idSection %>">Seção: <%=titleSection %></a>
-	</p>
+	</div>
+	<hr />
 		<fieldset>
 			<legend>
 				<%=thread.getTitleThread()%>
 				</a>
 			</legend>
+			<p>
 			<%=thread.getMessageThread()%>
-			<ul>
+			</p>
 				<%
 			    if (canEditThread) {
 			%>
-				<li><a href="editarTopico?id=<%=thread.getIdThread()%>"
-					class="button edit">Editar tópico</a></li>
-				<li><a href="apagarTopico?id=<%=thread.getIdThread()%>"
-					class="button delete">Apagar tópico</a></li>
+				<hr />
+				<a href="editarTopico?id=<%=thread.getIdThread()%>"
+					class="button edit">Editar tópico</a>
+				<a href="apagarTopico?id=<%=thread.getIdThread()%>"
+					class="button delete">Apagar tópico</a>
 				<%
 			    }
 			%>
-			</ul>
 		</fieldset>
 		<hr />
 
@@ -53,22 +55,16 @@
 			<legend>
 				Comentário
 				<%=i + 1%></legend>
-			<%=comments.get(i).getMessageComment()%>
-			<ul>
+			<p><%=comments.get(i).getMessageComment()%></p>
 				<%
 			    if (idUSer == comments.get(i).getUser().getIdUser() || isAdmin) {
 			%>
-				<li><a
-					href="editarComentario?id=<%=comments.get(i).getIdComment()%>"
-					class="button edit">Editar comentário</a></li>
-
-				<li><a
-					href="apagarComentario?id=<%=comments.get(i).getIdComment()%>"
-					class="button delete">Apagar comentário</a></li>
+				<hr />
+				<a href="editarComentario?id=<%=comments.get(i).getIdComment()%>" class="button edit">Editar comentário</a>
+				<a href="apagarComentario?id=<%=comments.get(i).getIdComment()%>" class="button delete">Apagar comentário</a>
 				<%
 			    }
 			%>
-			</ul>
 		</fieldset>
 		<%
 		    }

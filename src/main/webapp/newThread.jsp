@@ -9,16 +9,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Novo tópico</title>
+<title>Fórum - IFRS - Lucas Falk Beier</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 	<div id="conteiner">
-		<p>
+		<div class="breadcrumbs">
 			<a href="index">Fórum</a>
-			>
+			::
 			<a href="exibeSecao?id=<%=idSection%>">Seção: <%= titleSection %></a>
-		</p>
+		</div>
 		<form action="" method="post">
 			<p>
 				<label for="titleThread">Título do tópico</label>

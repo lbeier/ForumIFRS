@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Novo usuário</title>
+<title>Fórum - IFRS - Lucas Falk Beier</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 	<div id="conteiner">
-		<p>
+		<div class="breadcrumbs">
 			<a href="index">Fórum</a>
-		</p>
+		</div>
 		<form action="" method="post">
 			<p>
 				<label for="login"> Login do usuário </label>

@@ -9,15 +9,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Fórum - IFRS - Lucas Falk Beier</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'/>
 </head>
 <body>
 	<div id="conteiner" class="borderRounded">
-		<p>
-			<a href="index">Fórum</a>
-		</p>
+		<div class="breadcrumbs">
+				<a href="index">Fórum</a>
+		</div>
+		<hr />
 		<%
 			for (int i = 0; i < sections.size(); i++) {
 			int idSection = sections.get(i).getIdSection();
@@ -45,23 +46,21 @@
 		<%
 			}
 		%>
-		<ul>
 			<%
 			if (isAdmin) {
 		%>
-			<li><a href="novaSecao" class="button add">Nova seção</a></li>
+			<hr />
+			<a href="novaSecao" class="button add">Nova seção</a>
 
-			<li><a href="novoUsuario" class="button add">Novo usuário</a></li>
+			<a href="novoUsuario" class="button add">Novo usuário</a>
 
-			<li><a href="listarUsuarios" class="button email">Listar
-					usuários</a></li>
+			<a href="listarUsuarios" class="button email">Listar
+					usuários</a>
 			<%
 			}
 		%>
 
-			<li><a href="login?action=logout" class="button spark">Logout</a>
-			</li>
-		</ul>
+			<a href="login?action=logout" class="button spark">Logout</a>
 	</div>
 </body>
 </html>

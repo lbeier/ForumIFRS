@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Novo usuário</title>
+<title>Fórum - IFRS - Lucas Falk Beier</title>
 </head>
 <body>
 	<div id="conteiner">
