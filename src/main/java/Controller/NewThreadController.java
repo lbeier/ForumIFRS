@@ -21,7 +21,9 @@ public class NewThreadController extends ApplicationController {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int idSection = Integer.parseInt(request.getParameter("idSection"));
+		String titleSection = new Section().findById(idSection).getTitleSection();
 		request.setAttribute("idSection", idSection);
+		request.setAttribute("titleSection", titleSection);
 		
 		render("newThread", request, response);
 	}

@@ -8,17 +8,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Novo usuário</title>
+<title>Editar usuário</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+			>
+			<a href="listarUsuarios">Listar usuários</a>
+		</p>
 		<form action="" method="post">
 			<p>
 				<label for="">Login do usuário</label>
 				<%=user.getLoginUser()%>
 			</p>
-			
+
 			<p>
 				<label for="">Tipo de usuário</label>
 			</p>
@@ -47,7 +52,8 @@
 
 			<input type="hidden" name="idUser" id="idUser"
 				value="<%=user.getIdUser()%>" /> <input type="submit"
-				value="Editar usuario" class="button" /> <input type="reset" value="Limpar" class="button" />
+				value="Editar usuario" class="button" /> <input type="reset"
+				value="Limpar" class="button" />
 		</form>
 	</div>
 </body>

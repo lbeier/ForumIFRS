@@ -9,6 +9,9 @@
 </head>
 <body>
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+		</p>
 		<form action="" method="post">
 			<p>
 				<label for="titulo">Título da seção</label>
@@ -26,10 +29,6 @@
 			<input type="submit" value="Enviar" class="button" /> <input
 				type="reset" value="Limpar" class="button" />
 		</form>
-
-		<p>
-			<a href="index.html">Voltar</a>
-		</p>
 	</div>
 </body>
 </html>

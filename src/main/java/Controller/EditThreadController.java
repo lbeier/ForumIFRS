@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Framework.ApplicationController;
+import Model.Section;
 import Model.Thread;
 
 public class EditThreadController extends ApplicationController {
@@ -24,7 +25,10 @@ public class EditThreadController extends ApplicationController {
 
 		if(canEditThread) {
 			Thread thread = new Thread().findById(idThread);
+			int idSection = thread.getSection().getIdSection();
+			Section section = new Section().findById(idSection);
 			request.setAttribute("thread", thread);
+			request.setAttribute("section", section);
 			render("editThread", request, response);
 		} else {
 			redirect("index", response);

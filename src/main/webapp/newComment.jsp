@@ -1,7 +1,14 @@
+<%@page import="Model.Thread"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
-	int idThread = (Integer) request.getAttribute("idThread");
+	Thread thread = (Thread) request.getAttribute("thread");
+	int idThread = thread.getIdThread();
+	String titleThread = thread.getTitleThread();
+	String messageThread = thread.getMessageThread();
+	String titleSection = thread.getSection().getTitleSection();
+	int idSection = thread.getSection().getIdSection();
+			
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,6 +19,20 @@
 </head>
 <body>
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+			>
+			<a href="exibeSecao?id=<%=idSection%>"><%=titleSection%></a>
+			>
+			<a href="exibeTopico?id=<%=idThread%>"><%=titleThread%></a>
+		</p>
+		
+		<fieldset>
+			<legend>
+			Respondendo ao tópico <%= titleThread %>
+			</legend>
+			<%= messageThread %>
+		</fieldset>
 		<form action="" method="post">
 			<p>
 				<label for="messageComment">Mensagem do comentário</label>

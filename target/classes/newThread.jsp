@@ -3,6 +3,7 @@
 
 <%
 	int idSection = (Integer) request.getAttribute("idSection");
+	String titleSection = (String) request.getAttribute("titleSection");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,6 +14,11 @@
 </head>
 <body>
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+			>
+			<a href="exibeSecao?id=<%=idSection%>"><%= titleSection %></a>
+		</p>
 		<form action="" method="post">
 			<p>
 				<label for="titleThread">Título do tópico</label>
@@ -32,10 +38,6 @@
 				value="<%=idSection%>" /> <input type="submit" value="Enviar"
 				class="button" /> <input type="reset" value="Limpar" class="button" />
 		</form>
-
-		<p>
-			<a href="">Voltar</a>
-		</p>
 	</div>
 </body>
 </html>

@@ -14,6 +14,9 @@
 </head>
 <body>
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+		</p>
 		<%
 			for (int i = 0; i < users.size(); i++) {
 				String loginUser = users.get(i).getLoginUser();

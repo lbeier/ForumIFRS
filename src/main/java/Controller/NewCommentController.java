@@ -18,8 +18,9 @@ public class NewCommentController extends ApplicationController {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idThread = Integer.parseInt(request.getParameter("id"));		
-		request.setAttribute("idThread", idThread);
+		int idThread = Integer.parseInt(request.getParameter("id"));
+		Thread thread = new Thread().findById(idThread);		
+		request.setAttribute("thread", thread);
 		
 		render("newComment", request, response);
 	}

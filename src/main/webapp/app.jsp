@@ -12,13 +12,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600'
-	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'/>
 </head>
 <body>
 	<div id="conteiner" class="borderRounded">
-		<h1>Fórum</h1>
+		<p>
+			<a href="index">Fórum</a>
+		</p>
 		<%
 			for (int i = 0; i < sections.size(); i++) {
 		%>

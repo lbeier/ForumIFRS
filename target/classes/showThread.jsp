@@ -22,10 +22,8 @@
 	<div id="conteiner">
 	<p>
 		<a href="index">Fórum</a>
-		>>
+		>
 		<a href="exibeSecao?id=<%=idSection %>"><%=titleSection %></a>
-		>>
-		<a href="exibeSecao?id=<%=thread.getIdThread() %>"><%=thread.getTitleThread() %></a>
 	</p>
 		<fieldset>
 			<legend>

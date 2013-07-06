@@ -9,20 +9,19 @@
 </head>
 <body>
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+		</p>
 		<form action="" method="post">
 			<p>
-				<label for="login">
-					Login do usuário
-				</label>
+				<label for="login"> Login do usuário </label>
 			</p>
 			<p>
 				<input type="text" name="login" id="login" />
 			</p>
-			
+
 			<p>
-				<label for="senha">
-					Senha do usuário
-				</label>
+				<label for="senha"> Senha do usuário </label>
 			</p>
 			<p>
 				<input type="password" name="senha" id="senha" />
@@ -31,8 +30,8 @@
 				<input type="password" name="senhaConfirma" id="senhaConfirma" />
 			</p>
 
-			<input type="submit" value="Criar usuario" class="button" /> <input type="reset"
-				value="Limpar" class="button" />
+			<input type="submit" value="Criar usuário" class="button" /> <input
+				type="reset" value="Limpar" class="button" />
 		</form>
 	</div>
 </body>

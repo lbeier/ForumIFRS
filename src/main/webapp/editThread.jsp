@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List, Model.Thread"%>
+	pageEncoding="ISO-8859-1"
+	import="java.util.List, Model.Thread, Model.Section"%>
 <%
 	Thread thread = (Thread) request.getAttribute("thread");
+	Section section = (Section) request.getAttribute("section");
+	int idSection = section.getIdSection();
+	String titleSection = section.getTitleSection();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,8 +15,14 @@
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+			>
+			<a href="exibeSecao?id=<%=idSection%>"><%=titleSection%></a>
+			>
+			<a href="exibeTopico?id=<%=thread.getIdThread()%>"><%=thread.getTitleThread()%></a>
+		</p>
 		<form action="" method="post">
 			<p>
 				<label for="titleThread">Título do tópico</label>
@@ -34,11 +44,6 @@
 				value="Enviar" class="button" /> <input type="reset" value="Limpar"
 				class="button" />
 		</form>
-
-		<p>
-			<a href="">Voltar</a>
-		</p>
 	</div>
-
 </body>
 </html>

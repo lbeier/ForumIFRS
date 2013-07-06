@@ -3,6 +3,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%
 	Section section = (Section) request.getAttribute("section");
+	int idSection = section.getIdSection();
+	String titleSection = section.getTitleSection();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,6 +15,11 @@
 </head>
 <body>
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+			>
+			<a href="exibeSecao?id=<%=idSection%>"><%=titleSection%></a>
+		</p>
 		<form action="" method="post">
 			<p>
 				<label for="titleSection">Título da seção</label>
@@ -34,10 +41,6 @@
 				value="Enviar" class="button" /> <input type="reset" value="Limpar"
 				class="button" />
 		</form>
-
-		<p>
-			<a href="index.html">Voltar</a>
-		</p>
 	</div>
 </body>
 </html>

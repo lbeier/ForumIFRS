@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Framework.ApplicationController;
 import Model.Comment;
+import Model.Thread;
 
 public class EditCommentController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
@@ -24,6 +25,10 @@ public class EditCommentController extends ApplicationController {
 
 		if(canEditThread) {
 			Comment comment = new Comment().findById(idComment);
+			int idThread = comment.getThread().getIdThread();
+			Thread thread = new Thread().findById(idThread);
+			
+			request.setAttribute("thread", thread);
 			request.setAttribute("comment", comment);
 			render("editComment", request, response);
 		} else {

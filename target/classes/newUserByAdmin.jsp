@@ -9,6 +9,9 @@
 </head>
 <body>
 	<div id="conteiner">
+		<p>
+			<a href="index">Fórum</a>
+		</p>
 		<form action="" method="post">
 			<p>
 				<label for="login">Login do usuário</label>
@@ -35,13 +38,9 @@
 				<input type="radio" name="tipo" value="false">Normal
 			</p>
 
-			<input type="submit" value="Criar usuario" class="button" /> <input
+			<input type="submit" value="Criar usuário" class="button" /> <input
 				type="reset" value="Limpar" class="button" />
 		</form>
-
-		<p>
-			<a href="index.html">Voltar</a>
-		</p>
 	</div>
 </body>
 </html>
