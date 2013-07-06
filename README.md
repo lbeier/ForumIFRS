@@ -13,8 +13,7 @@ Instalação:
 
 1. Baixe ou clone o projeto.
 2. Na pasta do projeto execute "mvn clean install".
-3. Acesse o MySQL e crie um schema chamado "Forum".
-3.1. Configure o arquivo "persistence.xml" com os dados do MySQL.
+3. Acesse o MySQL e crie um schema chamado "Forum" e configure o arquivo "persistence.xml" com os dados do MySQL.
 4. Após isso execute o Tomcat e acesse o projeto pelo navegador.
 5. Deverá ser exibida a tela de login. Clique em logar sem preencher nada. Desta forma o Hibernate criará as tabelas no banco de dados. Após isso a tela de login sera atualizada.
 6. Acesse o MySQL, schema Forum e table User e adicione um usuário admin com os seguintes critérios:
