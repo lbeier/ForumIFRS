@@ -1,8 +1,10 @@
+<%@page import="Model.Comment"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
 	import="java.util.List, Model.Section, Model.Thread"%>
 <%
-	List<Thread> threads = (List<Thread>) request.getAttribute("threads");
+	List<Thread> threads = (List<Thread>) request
+			.getAttribute("threads");
 	Section section = (Section) request.getAttribute("section");
 	int idSection = section.getIdSection();
 	String titleSection = section.getTitleSection();
@@ -19,8 +21,6 @@
 	<div id="conteiner">
 		<p>
 			<a href="index">Fórum</a>
-			>
-			<a href="exibeSecao?id=<%=idSection%>"><%=titleSection%></a>
 		</p>
 		<h1><%=titleSection%></h1>
 		<ul>
@@ -39,14 +39,30 @@
 		</ul>
 		<%
 			for (int i = 0; i < threads.size(); i++) {
+			int idThread = threads.get(i).getIdThread();
+			int numbersOfComments = new Comment().findAllByThread(idThread).size();
+			int numbersOfVisualizations = threads.get(i).getNumbersOfVisualizations();
 		%>
-		<fieldset>
-			<legend>
-				<a href="exibeTopico?id=<%=threads.get(i).getIdThread()%>"> <%=threads.get(i).getTitleThread()%>
+		<div id="topico<%= i %>" class="divApresentacao">
+			<div id="topico<%= i %>" name="topico<%= i %>" class="tituloApresentacao">
+				<a href="exibeTopico?id=<%=threads.get(i).getIdThread()%>">
+					<%=threads.get(i).getTitleThread()%>
 				</a>
-			</legend>
-			<%=threads.get(i).getMessageThread()%>
-		</fieldset>
+			</div>
+
+			<div id="mensagemTopico<%= i %>" name="mensagemTopico i %>" class="corpoApresentacao">
+			<div id="desenhoTopico<%= i %>" name="desenhoTopico<%= i %>" class="desenhoApresentacao">
+				<img alt="" src="http://cdn3.iconfinder.com/data/icons/iconic-1/32/chat_alt_stroke-48.png"/>
+			</div>
+			<div class="mensagemApresentacao">
+				<%=threads.get(i).getMessageThread()%>
+			</div>
+			<div class="contagemApresentacao">
+				Respostas: <%= numbersOfComments %>
+				Visualizações: <%= numbersOfVisualizations %>
+			</div>	
+			</div>
+		</div>
 		<%
 			}
 		%>

@@ -34,6 +34,9 @@ public class Thread {
 
     @Column(name="dateUpdate", columnDefinition="date")
     private Date dateUpdate;
+    
+    @Column(name="numbersOfVisualizations", columnDefinition="int")
+    private int numbersOfVisualizations;
 
     @ManyToOne  
     @JoinColumn(name = "idUser")
@@ -86,6 +89,18 @@ public class Thread {
         Thread thread = em.find( Thread.class, id);
         thread.setTitleThread(title);
         thread.setMessageThread(message);
+        em.flush();
+        em.getTransaction().commit();
+        em.close();
+    }
+    
+    public void updateThread(int id, int number) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Forum");
+        EntityManager em = factory.createEntityManager();
+
+        em.getTransaction().begin();
+        Thread thread = em.find( Thread.class, id);
+        thread.setNumbersOfVisualizations(number);
         em.flush();
         em.getTransaction().commit();
         em.close();
@@ -208,4 +223,12 @@ public class Thread {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+	public int getNumbersOfVisualizations() {
+		return numbersOfVisualizations;
+	}
+
+	public void setNumbersOfVisualizations(int numbersOfVisualizations) {
+		this.numbersOfVisualizations = numbersOfVisualizations;
+	}  
 }

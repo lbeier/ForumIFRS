@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="Model.Section, java.util.List"%>
+	pageEncoding="ISO-8859-1" import="Model.Section, Model.Thread, java.util.List"%>
 
 <%
-	List<Section> sections = (List<Section>) request
-			.getAttribute("sections");
+	List<Section> sections = (List<Section>) request.getAttribute("sections");
 	boolean isAdmin = (Boolean) request.getAttribute("isAdmin");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,14 +20,28 @@
 		</p>
 		<%
 			for (int i = 0; i < sections.size(); i++) {
+			int idSection = sections.get(i).getIdSection();
+			int numbersOfThreads = new Thread().findAllBySection(idSection).size();
 		%>
-		<fieldset class="borderRounded">
-			<legend>
-				<a href="exibeSecao?id=<%=sections.get(i).getIdSection()%>"> <%=sections.get(i).getTitleSection()%>
+		<div id="secao<%= i %>" class="divApresentacao">
+			<div id="tituloSecao<%= i %>" name="tituloSecao<%= i %>" class="tituloApresentacao">
+				<a href="exibeSecao?id=<%=sections.get(i).getIdSection()%>">
+				<%=sections.get(i).getTitleSection()%>
 				</a>
-			</legend>
-			<%=sections.get(i).getDescriptionSection()%>
-		</fieldset>
+			</div>
+
+			<div id="mensagemSecao<%= i %>" name="mensagemSecao<%= i %>" class="corpoApresentacao">
+			<div id="desenhoSecao<%= i %>" name="desenhoSecao<%= i %>" class="desenhoApresentacao">
+				<img alt="" src="http://cdn3.iconfinder.com/data/icons/iconic-1/32/chat_alt_fill-48.png"/>
+			</div>
+			<div class="mensagemApresentacao">
+				<%=sections.get(i).getDescriptionSection()%>
+			</div>
+			<div class="contagemApresentacao">
+				Tópicos: <%= numbersOfThreads%>
+			</div>		
+			</div>
+		</div>
 		<%
 			}
 		%>

@@ -11,6 +11,8 @@
 	<div id="conteiner">
 		<p>
 			<a href="index">Fórum</a>
+			>
+			<a href="listarUsuarios">Listar usuários</a>
 		</p>
 		<form action="" method="post">
 			<p>

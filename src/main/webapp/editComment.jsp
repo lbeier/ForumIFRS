@@ -20,8 +20,11 @@
 <body>
 	<div id="conteiner">
 		<p>
-			<a href="index">Fórum</a> > <a href="exibeSecao?id=<%=idSection%>"><%=titleSection%></a>
-			> <a href="exibeTopico?id=<%=idThread%>"><%=titleThread%></a>
+			<a href="index">Fórum</a>
+			>
+			<a href="exibeSecao?id=<%=idSection%>">Seção: <%=titleSection%></a>
+			>
+			<a href="exibeTopico?id=<%=idThread%>">Tópico: <%=titleThread%></a>
 		</p>
 
 		<fieldset>

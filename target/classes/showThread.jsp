@@ -23,7 +23,7 @@
 	<p>
 		<a href="index">Fórum</a>
 		>
-		<a href="exibeSecao?id=<%=idSection %>"><%=titleSection %></a>
+		<a href="exibeSecao?id=<%=idSection %>">Seção: <%=titleSection %></a>
 	</p>
 		<fieldset>
 			<legend>

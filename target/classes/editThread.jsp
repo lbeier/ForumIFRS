@@ -19,9 +19,9 @@
 		<p>
 			<a href="index">Fórum</a>
 			>
-			<a href="exibeSecao?id=<%=idSection%>"><%=titleSection%></a>
+			<a href="exibeSecao?id=<%=idSection%>">Seção: <%=titleSection%></a>
 			>
-			<a href="exibeTopico?id=<%=thread.getIdThread()%>"><%=thread.getTitleThread()%></a>
+			<a href="exibeTopico?id=<%=thread.getIdThread()%>">Tópico: <%=thread.getTitleThread()%></a>
 		</p>
 		<form action="" method="post">
 			<p>

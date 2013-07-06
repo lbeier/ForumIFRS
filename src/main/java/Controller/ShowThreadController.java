@@ -22,6 +22,8 @@ public class ShowThreadController extends ApplicationController {
 			throws ServletException, IOException {
 		int idThread = Integer.parseInt(request.getParameter("id"));
 		Thread thread = new Thread().findById(idThread);
+		int numbersOfVisualizations = thread.getNumbersOfVisualizations();
+		thread.updateThread(idThread, (numbersOfVisualizations+1));
 		int idSection = thread.getSection().getIdSection();
 		Section section = new Section().findById(idSection);
 		List<Comment> comments = new Comment().findAllByThread(idThread);
