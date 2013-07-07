@@ -1,5 +1,6 @@
-@font-family: 'Open Sans';
+@font-family: 'Open Sans, sans-serif';
 @font-style: normal;
+@inputLabelShadow: #67E300;
 
 .rounded-corners (@radius) {
   -webkit-border-radius: @radius;
@@ -7,6 +8,12 @@
   -ms-border-radius: @radius;
   -o-border-radius: @radius;
   border-radius: @radius;
+}
+
+.box-shadow (@params) {
+  -moz-box-shadow: @params;
+  -webkit-box-shadow: @params;
+  box-shadow: @params;
 }
 
 @font-face {
@@ -39,7 +46,7 @@
 body {
 	background-image: url("../images/shattered.png");
 	background-repeat: repeat;
-	font-family: @font-family, sans-serif;
+	font-family: @font-family;
 }
 
 input[type="text"],input[type="password"],textarea {
@@ -53,8 +60,8 @@ input[type="text"],input[type="password"],textarea {
 
 input[type="text"]:focus,input[type="password"]:focus,textarea:focus {
 	outline: none;
-	border-color: #67E300;
-	box-shadow: 0 0 10px #67E300;
+	border-color: @inputLabelShadow;
+	.box-shadow(0 0 10px @inputLabelShadow);
 	background-color: #DEFFC4;
 }
 
@@ -63,7 +70,7 @@ label {
 }
 
 label:HOVER {
-	text-shadow: #67E300 0.1em 0.1em 0.2em;
+	text-shadow: @inputLabelShadow 0.1em 0.1em 0.2em;
 }
 
 textarea {
@@ -184,16 +191,11 @@ li {
 		EndColorStr='#cccccc');
 	border: 1px solid #777;
 	padding: 0 1.5em;
-	font: bold 1em/2em 'Open Sans', sans-serif;
+	font: bold 1em/2em @font-family;
 	text-decoration: none;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
 	.rounded-corners(.2em);
-	-moz-box-shadow: 0 0 1px 1px rgba(255, 255, 255, .8) inset, 0 1px 0
-		rgba(0, 0, 0, .3);
-	-webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, .8) inset, 0 1px 0
-		rgba(0, 0, 0, .3);
-	box-shadow: 0 0 1px 1px rgba(255, 255, 255, .8) inset, 0 1px 0
-		rgba(0, 0, 0, .3);
+	.box-shadow(0 0 1px 1px rgba(255, 255, 255, .8) inset, 0 1px 0 rgba(0, 0, 0, .3));
 }
 
 .button:hover {
@@ -210,9 +212,7 @@ li {
 }
 
 .button:active {
-	-moz-box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3) inset;
-	-webkit-box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3) inset;
-	box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3) inset;
+  .box-shadow(0 0 4px 2px rgba(0, 0, 0, .3) inset);
 	position: relative;
 	top: 1px;
 }
@@ -226,17 +226,13 @@ li {
 	background: #ccc;
 	background: rgba(0, 0, 0, .1);
 	float: left;
-	width: 1em;
+	width: 16px;
 	text-align: center;
-	font-size: 1.5em;
-	margin: 0 1em 0 -1em;
-	padding: 0 .2em;
-	-moz-box-shadow: 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0
-		rgba(255, 255, 255, .5);
-	-webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0
-		rgba(255, 255, 255, .5);
-	box-shadow: 1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5);
-	.rounded-corners(.15em 0 0 .15em);
+	font-size: 24px;
+	margin: 0 16px 0 -16px;
+	padding: 0 3px;
+	.box-shadow(1px 0 0 rgba(0, 0, 0, .5), 2px 0 0 rgba(255, 255, 255, .5));
+	.rounded-corners(2px 0 0 2px);
 	pointer-events: none;
 }
 

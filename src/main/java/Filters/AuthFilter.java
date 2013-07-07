@@ -17,11 +17,16 @@ public class AuthFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-
-		HttpSession session = ((HttpServletRequest) request).getSession();
-		String userAuth = (String) session.getAttribute("userAuth");
 		
-		if(userAuth != null && userAuth.equals("true")) {
+	    HttpServletRequest req= (HttpServletRequest) request;
+		HttpSession session = req.getSession();
+		String userAuth = (String) session.getAttribute("userAuth");
+		String url = req.getRequestURL().toString();
+	    String route = url.substring(url.lastIndexOf("/")).replace("/", "");
+	    
+		if((userAuth != null && userAuth.equals("true")) 
+				|| route.equals("style.css") || route.equals("scripts.js")
+				|| route.equals("jquery-1.10.2.min.js") || route.equals("shattered.png")) {
 			chain.doFilter(request, response);
 		} else {
 			RequestDispatcher rs = request.getRequestDispatcher("/login");

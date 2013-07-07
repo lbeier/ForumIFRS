@@ -10,20 +10,20 @@
 <script type="text/JavaScript" src="js/scripts.js"></script>
 </head>
 <body>
-	<div id="conteiner">
-		<div id="content">
+	<div id="conteiner" style="margin: auto; width: 500px;">
+		<div id="content" style="padding: 0px; margin: auto; width: 500px;">
 			<form action="login" method="post">
 				<p>
 					<label for="loginUser">Login</label> 
 				</p>
 				<p>
-					<input type="text" name="loginUser" id="loginUser"/>
+					<input type="text" name="loginUser" id="loginUser" style="width: 300px;"/>
 				</p>
 				<p>
 					<label for="passwordUser">Senha</label> 
 				</p>
 				<p>
-					<input type="password" name="passwordUser" id="passwordUser"/>
+					<input type="password" name="passwordUser" id="passwordUser" style="width: 300px;"/>
 				</p>
 
 				<input type="submit" value="Login" class="button" /> <input type="reset"

@@ -11,7 +11,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Fórum - IFRS - Lucas Falk Beier</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'/>
 <script type="text/JavaScript" src="js/jquery-1.10.2.min.js"></script> 
 </head>
 <body>
