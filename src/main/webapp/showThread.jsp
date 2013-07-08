@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
-	import="java.util.List, Model.Comment, Model.Thread, Model.Section"%>
+	import="java.util.List, Model.Comment, Model.Thread, Model.Section, Model.Thread_Tag, Model.Tag"%>
 <%
     List<Comment> comments = (List<Comment>) request.getAttribute("comments");
     Thread thread = (Thread) request.getAttribute("thread");
@@ -10,6 +10,7 @@
     Section section = (Section) request.getAttribute("section");
     int idSection = section.getIdSection();
     String titleSection = section.getTitleSection();
+    List<Thread_Tag> tags = (List<Thread_Tag>) request.getAttribute("tags");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -34,6 +35,14 @@
 			</legend>
 			<p>
 			<%=thread.getMessageThread()%>
+			<hr/>
+			<%
+				for(int i = 0; i < tags.size(); i++) {
+			%>
+				<span class="tag"><%= tags.get(i).getTag().getTitleTag() %></span>
+			<%
+				}
+			%>
 			</p>
 				<%
 			    if (canEditThread) {

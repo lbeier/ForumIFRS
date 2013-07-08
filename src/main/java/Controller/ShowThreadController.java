@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import Framework.ApplicationController;
 import Model.Comment;
 import Model.Section;
+import Model.Tag;
 import Model.Thread;
+import Model.Thread_Tag;
 
 public class ShowThreadController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
@@ -27,6 +29,7 @@ public class ShowThreadController extends ApplicationController {
 		int idSection = thread.getSection().getIdSection();
 		Section section = new Section().findById(idSection);
 		List<Comment> comments = new Comment().findAllByThread(idThread);
+		List<Thread_Tag> tags = new Thread_Tag().findAllTagsById(idThread); 
 		int idUSer = getIdUserLoggedIn(request);
 		boolean canEditThread = new Thread().canUserModifyThread(idUSer, idThread);
 		boolean isAdmin = isLoggedUserAdmin(request);
@@ -37,6 +40,7 @@ public class ShowThreadController extends ApplicationController {
 		request.setAttribute("thread", thread);
 		request.setAttribute("comments", comments);
 		request.setAttribute("section", section);
+		request.setAttribute("tags", tags);
 		
 		render("showThread", request, response);
 	}

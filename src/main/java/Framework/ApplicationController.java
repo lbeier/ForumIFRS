@@ -25,7 +25,6 @@ public class ApplicationController extends HttpServlet {
 	 */
 	public void render(String string, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Render");
 		RequestDispatcher rs = request.getRequestDispatcher(string+".jsp");
 		rs.forward(request, response);
 	}
@@ -37,7 +36,6 @@ public class ApplicationController extends HttpServlet {
 	 * @throws IOException
 	 */
 	public void redirect(String string, HttpServletResponse response) throws IOException {
-		System.out.println("Redirect");
         response.sendRedirect(string);
 	}
 	
@@ -48,7 +46,6 @@ public class ApplicationController extends HttpServlet {
 	 */
 	public int getIdUserLoggedIn(HttpServletRequest request) {
 		int idUser = (Integer) request.getSession().getAttribute("idUser");
-		System.out.println("getIdUserLoggedIn");
 		return idUser;
 	}
 	
@@ -61,7 +58,6 @@ public class ApplicationController extends HttpServlet {
 		int id = getIdUserLoggedIn(request);
 		User user = new User();
 		boolean isAdmin = user.isUserAdmin(id);
-		System.out.println("isLoggedUserAdmin");
 		return isAdmin;
 	}
 	
@@ -71,7 +67,6 @@ public class ApplicationController extends HttpServlet {
 	 * @param request
 	 */
 	public void login(int idUser, HttpServletRequest request) {
-		System.out.println("Login");
 		HttpSession session = request.getSession();
 		session.setAttribute("userAuth", "true");
 		session.setAttribute("idUser", idUser);
@@ -82,7 +77,6 @@ public class ApplicationController extends HttpServlet {
 	 * @param request
 	 */
 	public void logout(HttpServletRequest request) {
-		System.out.println("Logout");
 		HttpSession session = request.getSession();
 		session.invalidate();
 	}	

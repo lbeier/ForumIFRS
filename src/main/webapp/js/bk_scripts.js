@@ -4,7 +4,8 @@
     return $('form').submit(function() {
       $('input, textarea').each(function() {
         if ($(this).val() === '') {
-          return $(this).addClass('inputError');
+          $(this).addClass('inputError');
+          return $('<span style="color: red;">Este campo &eacute; obrigat&oacute;rio.</span>').insertAfter(this);
         } else {
           return $(this).removeClass('inputError');
         }

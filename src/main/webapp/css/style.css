@@ -121,6 +121,19 @@ li {
   background-color: #FFFFFF;
   padding: 10px;
 }
+
+.tag {
+  display: inline-block;
+    padding: 3px;
+    border: 1px solid #777;
+    border-radius: 6px;
+    box-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
 #content {
   margin: auto;
   width: 200px;

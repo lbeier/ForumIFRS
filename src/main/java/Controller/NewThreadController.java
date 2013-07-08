@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Framework.ApplicationController;
 import Model.Section;
+import Model.Tag;
 import Model.Thread;
 import Model.User;
 
@@ -34,7 +36,8 @@ public class NewThreadController extends ApplicationController {
 		String titleThread = request.getParameter("titleThread");
 		String messageThread = request.getParameter("messageThread");
 		int idSection = Integer.parseInt(request.getParameter("idSection"));
-
+		String[] tags = request.getParameter("tagsThread").split(",");
+		
 		Thread thread = new Thread();
 		User user = new User();
 		Section section = new Section();
@@ -45,6 +48,7 @@ public class NewThreadController extends ApplicationController {
 		thread.setSection(section.findById(idSection));
 
 		int idThread = thread.insertNewThread(thread);
+		new Tag().createListOfTags(tags, idThread);
 
 		response.sendRedirect("exibeTopico?id="+idThread);
 	}

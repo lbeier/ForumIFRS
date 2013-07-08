@@ -35,6 +35,13 @@
 			<p>
 				<textarea id="messageThread" name="messageThread"></textarea>
 			</p>
+			
+			<p>
+				<label for="tagsThread">Tags do tópico (separe as tags por vírgula)</label>
+			</p>
+			<p>
+				<input type="text" id="tagsThread" name="tagsThread" />
+			</p>
 
 			<input type="hidden" id="idSection" name="idSection"
 				value="<%=idSection%>" /> <input type="submit" value="Enviar"
