@@ -1,5 +1,6 @@
 package Model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -23,11 +24,11 @@ public class Comment {
     @Column(name = "messageComment", columnDefinition = "text")
     private String messageComment;
 
-    @Column(name = "dateCreate", columnDefinition = "date")
-    private Date dateCreate;
+    @Column(name = "dateCreate", columnDefinition = "timestamp")
+    private Timestamp dateCreate;
 
-    @Column(name = "dateUpdate", columnDefinition = "date")
-    private Date dateUpdate;
+    @Column(name = "dateUpdate", columnDefinition = "timestamp")
+    private Timestamp dateUpdate;
 
     @ManyToOne
     @JoinColumn(name = "idUser")
@@ -46,6 +47,10 @@ public class Comment {
         EntityManagerFactory factory = Persistence
                 .createEntityManagerFactory("Forum");
         EntityManager em = factory.createEntityManager();
+		Timestamp now = new Timestamp(new Date().getTime());
+
+		comment.setDateCreate(now);
+		comment.setDateUpdate(now);
 
         em.getTransaction().begin();
         em.persist(comment);
@@ -79,6 +84,8 @@ public class Comment {
         em.getTransaction().begin();
         Comment comment = em.find(Comment.class, id);
         comment.setMessageComment(message);
+        Timestamp now = new Timestamp(new Date().getTime());
+		comment.setDateUpdate(now);
         em.flush();
         em.getTransaction().commit();
         em.close();
@@ -151,19 +158,19 @@ public class Comment {
         this.messageComment = messageComment;
     }
 
-    public Date getDateCreate() {
+    public Timestamp getDateCreate() {
         return dateCreate;
     }
 
-    public void setDateCreate(Date dateCreate) {
+    public void setDateCreate(Timestamp dateCreate) {
         this.dateCreate = dateCreate;
     }
 
-    public Date getDateUpdate() {
+    public Timestamp getDateUpdate() {
         return dateUpdate;
     }
 
-    public void setDateUpdate(Date dateUpdate) {
+    public void setDateUpdate(Timestamp dateUpdate) {
         this.dateUpdate = dateUpdate;
     }
 

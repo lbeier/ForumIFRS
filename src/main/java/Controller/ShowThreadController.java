@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import Framework.ApplicationController;
 import Model.Comment;
 import Model.Section;
-import Model.Tag;
 import Model.Thread;
 import Model.Thread_Tag;
 

@@ -13,8 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.hibernate.mapping.Set;
-
 @Entity
 public class Section {
 

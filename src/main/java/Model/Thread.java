@@ -1,5 +1,6 @@
 package Model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.apache.log4j.TTCCLayout;
 
 @Entity
 public class Thread {
@@ -31,11 +31,11 @@ public class Thread {
 	@Column(name="messageThread", columnDefinition="text")
 	private String messageThread;
 
-	@Column(name="dateCreate", columnDefinition="date")
-	private Date dateCreate;
+	@Column(name="dateCreate", columnDefinition="timestamp")
+	private Timestamp dateCreate;
 
-	@Column(name="dateUpdate", columnDefinition="date")
-	private Date dateUpdate;
+	@Column(name="dateUpdate", columnDefinition="Timestamp")
+	private Timestamp dateUpdate;
 
 	@Column(name="numbersOfVisualizations", columnDefinition="int")
 	private int numbersOfVisualizations;
@@ -61,6 +61,11 @@ public class Thread {
 	public int insertNewThread(Thread thread) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Forum");
 		EntityManager em = factory.createEntityManager();
+
+		Timestamp now = new Timestamp(new Date().getTime());
+		
+		thread.setDateCreate(now);
+		thread.setDateUpdate(now);
 
 		em.getTransaction().begin();
 		em.persist(thread);
@@ -94,6 +99,8 @@ public class Thread {
 		Thread thread = em.find( Thread.class, id);
 		thread.setTitleThread(title);
 		thread.setMessageThread(message);
+		Timestamp now = new Timestamp(new Date().getTime());
+		thread.setDateUpdate(now);
 		em.flush();
 		em.getTransaction().commit();
 		em.close();
@@ -208,19 +215,19 @@ public class Thread {
 		this.messageThread = messageThread;
 	}
 
-	public Date getDateCreate() {
+	public Timestamp getDateCreate() {
 		return dateCreate;
 	}
 
-	public void setDateCreate(Date dateCreate) {
+	public void setDateCreate(Timestamp dateCreate) {
 		this.dateCreate = dateCreate;
 	}
 
-	public Date getDateUpdate() {
+	public Timestamp getDateUpdate() {
 		return dateUpdate;
 	}
 
-	public void setDateUpdate(Date dateUpdate) {
+	public void setDateUpdate(Timestamp dateUpdate) {
 		this.dateUpdate = dateUpdate;
 	}
 
