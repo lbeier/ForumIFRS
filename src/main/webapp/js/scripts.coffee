@@ -3,6 +3,7 @@ $(document).ready ->
     $('input, textarea').each ->
       if $(this).val() == ''
         $(this).addClass('inputError')
+        $('<span style="color: red">Os campos em vermelho são obrigatórios.</span>').appendTo(this);
       else
         $(this).removeClass('inputError')
       

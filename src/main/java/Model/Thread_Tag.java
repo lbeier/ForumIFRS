@@ -53,6 +53,18 @@ public class Thread_Tag {
 		em.getTransaction().commit();
 		return tags;
 	}
+	
+	public List<Thread_Tag> findAllThreadssById(int idTag) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Forum");
+		EntityManager em = factory.createEntityManager();
+
+		em.getTransaction().begin();
+		Query q = em.createQuery("FROM Thread_Tag WHERE idTag = :idTag");
+		q.setParameter("idTag", idTag);
+		List<Thread_Tag> threads = q.getResultList();
+		em.getTransaction().commit();
+		return threads;
+	}
 
 	public int getIdThreadTag() {
 		return idThreadTag;

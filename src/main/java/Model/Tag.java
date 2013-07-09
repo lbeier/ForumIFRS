@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import Model.Thread;
+
 @Entity
 public class Tag {
 
@@ -81,6 +83,22 @@ public class Tag {
 			return new Tag().insertNewTag(titleTag);
 		else
 			return tagList.get(0).getIdTag();
+	}
+	
+	public List<Thread> findAllThreadsByTag(int idTag) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Forum");
+		EntityManager em = factory.createEntityManager();
+		
+		em.getTransaction().begin();
+		
+		Query q = em.createNativeQuery("FROM Thread INNER JOIN " +
+				"Thread_Tag ON Thread.idThread = Thread_Tag.idThread INNER JOIN " +
+				"Tag ON Thread_Tag.idTag = Tag.idTag WHERE Tag.idTag = ?", "Thread");
+		q.setParameter(1, idTag);
+		List<Thread> threads = q.getResultList();
+		em.getTransaction().commit();
+		
+		return threads;		
 	}
 
 	public int getIdTag() {

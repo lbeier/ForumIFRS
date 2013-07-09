@@ -12,8 +12,7 @@
 	Section section = (Section) request.getAttribute("section");
 	int idSection = section.getIdSection();
 	String titleSection = section.getTitleSection();
-	List<Thread_Tag> tags = (List<Thread_Tag>) request
-			.getAttribute("tags");
+	List<Thread_Tag> tags = (List<Thread_Tag>) request.getAttribute("tags");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -47,7 +46,11 @@
 				<%
 					for (int i = 0; i < tags.size(); i++) {
 				%>
-				<span class="tag"><%=tags.get(i).getTag().getTitleTag()%></span>
+				<span class="tag">
+					<a href="exibirTag?id=<%= tags.get(i).getTag().getIdTag() %>">
+						<%=tags.get(i).getTag().getTitleTag()%>
+					</a>
+				</span>
 				<%
 					}
 				%>
