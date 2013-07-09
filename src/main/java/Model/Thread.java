@@ -66,6 +66,8 @@ public class Thread {
 		
 		thread.setDateCreate(now);
 		thread.setDateUpdate(now);
+		thread.setTitleThread(thread.getTitleThread().trim());
+		thread.setMessageThread(thread.getMessageThread().trim());
 
 		em.getTransaction().begin();
 		em.persist(thread);
@@ -97,8 +99,8 @@ public class Thread {
 
 		em.getTransaction().begin();
 		Thread thread = em.find( Thread.class, id);
-		thread.setTitleThread(title);
-		thread.setMessageThread(message);
+		thread.setTitleThread(title.trim());
+		thread.setMessageThread(message.trim());
 		Timestamp now = new Timestamp(new Date().getTime());
 		thread.setDateUpdate(now);
 		em.flush();

@@ -51,6 +51,7 @@ public class Comment {
 
 		comment.setDateCreate(now);
 		comment.setDateUpdate(now);
+		comment.setMessageComment(comment.getMessageComment().trim());
 
         em.getTransaction().begin();
         em.persist(comment);
@@ -86,6 +87,8 @@ public class Comment {
         comment.setMessageComment(message);
         Timestamp now = new Timestamp(new Date().getTime());
 		comment.setDateUpdate(now);
+		comment.setMessageComment(comment.getMessageComment().trim());
+
         em.flush();
         em.getTransaction().commit();
         em.close();

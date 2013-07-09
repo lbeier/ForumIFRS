@@ -1,3 +1,4 @@
+
 package Model;
 
 import java.util.List;
@@ -36,6 +37,9 @@ public class Section {
     public int insertNewSection(Section section) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Forum");
         EntityManager em = factory.createEntityManager();
+        
+        section.setTitleSection(section.getTitleSection().trim());
+        section.setDescriptionSection(section.getDescriptionSection().trim());
 
         em.getTransaction().begin();
         em.persist(section);
@@ -94,8 +98,8 @@ public class Section {
 
         em.getTransaction().begin();
         Section section = em.find(Section.class, id);
-        section.setTitleSection(title);
-        section.setDescriptionSection(description);
+        section.setTitleSection(title.trim());
+        section.setDescriptionSection(description.trim());
         em.flush();
         em.getTransaction().commit();
         em.close();

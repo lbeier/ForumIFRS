@@ -1,17 +1,17 @@
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans, sans-serif';
   font-style: normal;
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans, sans-serif';
   font-style: normal;
   font-weight: 600;
   src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans, sans-serif';
   font-style: normal;
   font-weight: 700;
   src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
@@ -19,7 +19,7 @@
 body {
   background-image: url("../images/shattered.png");
   background-repeat: repeat;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans, sans-serif';
 }
 input[type="text"],
 input[type="password"],
@@ -39,15 +39,17 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 textarea:focus {
   outline: none;
-  border-color: #67E300;
-  box-shadow: 0 0 10px #67E300;
+  border-color: #67e300;
+  -moz-box-shadow: 0 0 10px #67e300;
+  -webkit-box-shadow: 0 0 10px #67e300;
+  box-shadow: 0 0 10px #67e300;
   background-color: #DEFFC4;
 }
 label {
   font-size: 20px;
 }
 label:HOVER {
-  text-shadow: #67E300 0.1em 0.1em 0.2em;
+  text-shadow: #67e300 0.1em 0.1em 0.2em;
 }
 textarea {
   height: 300px;
@@ -67,22 +69,55 @@ li {
 }
 .divApresentacao {
   border: 2px solid #000000;
-  height: 88px;
+  height: auto;
   margin-bottom: 10px;
 }
-.tituloApresentacao {
+.tituloSecao {
   width: auto;
   height: 20px;
   padding: 5px;
-  background-image: linear-gradient(left, #a8f16d 17%, #439400 100%);
-  background-image: -o-linear-gradient(left, #a8f16d 17%, #439400 100%);
-  background-image: -moz-linear-gradient(left, #a8f16d 17%, #439400 100%);
-  background-image: -webkit-linear-gradient(left, #a8f16d 17%, #439400 100%);
-  background-image: -ms-linear-gradient(left, #a8f16d 17%, #439400 100%);
-  background-image: -webkit-gradient(linear, left, right, color-stop(0.17, #a8f16d), color-stop(1, #439400));
+  margin: 0px;
+  background-image: linear-gradient(left, #ffe973 17%, #ffd700 100%);
+  background-image: -o-linear-gradient(left, #ffe973 17%, #ffd700 100%);
+  background-image: -moz-linear-gradient(left, #ffe973 17%, #ffd700 100%);
+  background-image: -webkit-linear-gradient(left, #ffe973 17%, #ffd700 100%);
+  background-image: -ms-linear-gradient(left, #ffe973 17%, #ffd700 100%);
+}
+.tituloApresentacao {
+  width: auto;
+  height: auto;
+  padding: 0px 0px 0px 5px;
+  margin: -16px 0px 0px 0px;
+  background-image: linear-gradient(left, #ffb273 17%, #ff7400 100%);
+  background-image: -o-linear-gradient(left, #ffb273 17%, #ff7400 100%);
+  background-image: -moz-linear-gradient(left, #ffb273 17%, #ff7400 100%);
+  background-image: -webkit-linear-gradient(left, #ffb273 17%, #ff7400 100%);
+  background-image: -ms-linear-gradient(left, #ffb273 17%, #ff7400 100%);
+}
+.tituloMensagem {
+  width: auto;
+  height: auto;
+  padding: 0px 0px 0px 5px;
+  margin: 0px 0px 0px 0px;
+  background-image: linear-gradient(left, #5ccccc 17%, #006363 100%);
+  background-image: -o-linear-gradient(left, #5ccccc 17%, #006363 100%);
+  background-image: -moz-linear-gradient(left, #5ccccc 17%, #006363 100%);
+  background-image: -webkit-linear-gradient(left, #5ccccc 17%, #006363 100%);
+  background-image: -ms-linear-gradient(left, #5ccccc 17%, #006363 100%);
+}
+.tituloTopico {
+  width: auto;
+  height: auto;
+  padding: 0px 0px 0px 5px;
+  margin: -16px 0px 0px 0px;
+  background-image: linear-gradient(left, #a6f16c 10%, #409300 100%);
+  background-image: -o-linear-gradient(left, #a6f16c 10%, #409300 100%);
+  background-image: -moz-linear-gradient(left, #a6f16c 10%, #409300 100%);
+  background-image: -webkit-linear-gradient(left, #a6f16c 10%, #409300 100%);
+  background-image: -ms-linear-gradient(left, #a6f16c 10%, #409300 100%);
 }
 .corpoApresentacao {
-  height: 70px;
+  height: 58px;
 }
 .desenhoApresentacao {
   border-top: 2px solid #000000;
@@ -121,19 +156,17 @@ li {
   background-color: #FFFFFF;
   padding: 10px;
 }
-
 .tag {
   display: inline-block;
-    padding: 3px;
-    border: 1px solid #777;
-    border-radius: 6px;
-    box-shadow:
-        0 1px 1px rgba(0, 0, 0, 0.2),
-        inset 0 1px 1px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    text-transform: lowercase;
+  padding: 3px;
+  border: 1px solid #777;
+  border-radius: 6px;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  text-transform: lowercase;
 }
-
 #content {
   margin: auto;
   width: 200px;
@@ -154,14 +187,14 @@ li {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
   border: 1px solid #777;
   padding: 0 1.5em;
-  font: bold 1em/2em 'Open Sans', sans-serif;
+  margin: 0.5em;
+  font: bold 1em/2em Arial, Helvetica;
   text-decoration: none;
+  color: #333;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  -ms-border-radius: 0.2em;
-  -o-border-radius: 0.2em;
-  border-radius: 0.2em;
+  -moz-border-radius: .2em;
+  -webkit-border-radius: .2em;
+  border-radius: .2em;
   -moz-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.3);
@@ -199,13 +232,12 @@ li {
   -moz-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
   box-shadow: 1px 0 0 rgba(0, 0, 0, 0.5), 2px 0 0 rgba(255, 255, 255, 0.5);
-  -webkit-border-radius: 0.15em 0 0 0.15em;
-  -moz-border-radius: 0.15em 0 0 0.15em;
-  -ms-border-radius: 0.15em 0 0 0.15em;
-  -o-border-radius: 0.15em 0 0 0.15em;
-  border-radius: 0.15em 0 0 0.15em;
+  -moz-border-radius: .15em 0 0 .15em;
+  -webkit-border-radius: .15em 0 0 .15em;
+  border-radius: .15em 0 0 .15em;
   pointer-events: none;
 }
+/* Hexadecimal entities for the icons */
 .add:before {
   content: "\271A";
 }

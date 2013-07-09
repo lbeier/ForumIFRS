@@ -43,6 +43,8 @@ public class User {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Forum");
 		EntityManager em = factory.createEntityManager();
 
+		user.setLoginUser(user.getLoginUser().trim());
+		
 		em.getTransaction().begin();
 		em.persist(user);
 		em.getTransaction().commit();

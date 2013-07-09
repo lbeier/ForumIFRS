@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import Framework.ApplicationController;
 import Model.Comment;
 import Model.Thread;
+import Model.Thread_Tag;
 
 public class EditCommentController extends ApplicationController {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +29,9 @@ public class EditCommentController extends ApplicationController {
 			Comment comment = new Comment().findById(idComment);
 			int idThread = comment.getThread().getIdThread();
 			Thread thread = new Thread().findById(idThread);
-			
+			List<Thread_Tag> tags = new Thread_Tag().findAllTagsById(idThread); 
+
+			request.setAttribute("tags", tags);		
 			request.setAttribute("thread", thread);
 			request.setAttribute("comment", comment);
 			render("editComment", request, response);
